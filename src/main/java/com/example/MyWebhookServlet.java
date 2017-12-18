@@ -125,7 +125,7 @@ public class MyWebhookServlet extends AIWebhookServlet {
 				break;
 			case "TO_SUGGEST_LEAVE_TYPE":
 				log.info("intent : LeaveQueryWithParms - yes");
-				output = Redirections.redirectToSuggestLeaveOption(output, parameter);
+				output = Redirections.redirectToSuggestLeaveOption(output, parameter);///
 				break;
 
 			case "CONFIRM_LEAVE_APPLY":
@@ -171,6 +171,10 @@ public class MyWebhookServlet extends AIWebhookServlet {
 			case "FEELING_SICK" :
 				log.info("intent FEELING_SICK");
 				output = getResponseForNotWell(output, parameter,sessionId);
+				break;
+			case "SELECT_LEAVE_TYPE":
+				log.info("intent SELECT_LEAVE_TYPE");
+				output = Redirections.redirectToComboLeaveForm(output, parameter, sessionId);
 				break;
 			default:
 				output.setSpeech("Default case");

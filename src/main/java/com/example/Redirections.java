@@ -33,6 +33,14 @@ public class Redirections {
 		AIEvent followupEvent = new AIEvent("TERMINATE");
 		log.info("rerouting to event TERMINATE: evt trg");
 		output.setFollowupEvent(followupEvent);
+		//sugestLeaveOption context
+		return output;
+	}
+	protected static Fulfillment redirectToCustomizeLeaveType(Fulfillment output){
+		log.info("exit event trig fun");
+		AIEvent followupEvent = new AIEvent("CUSTOMIZE_LEAVE_TYPE ");
+		log.info("rerouting to event TERMINATE: evt trg");
+		output.setFollowupEvent(followupEvent);
 		return output;
 	}
 	public static Fulfillment redirectToDPApproval(Fulfillment output, HashMap<String, JsonElement> parameter){
